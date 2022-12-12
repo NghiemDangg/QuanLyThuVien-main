@@ -1,0 +1,88 @@
+<script>
+      function format(inputDate1, id) {
+        inputDate = new Date(inputDate1)
+        let date, month, year;
+
+        date = inputDate.getDate();
+        month = inputDate.getMonth() + 1;
+        year = inputDate.getFullYear();
+
+          date = date
+              .toString()
+              .padStart(2, '0');
+
+          month = month
+              .toString()
+              .padStart(2, '0');
+
+        let day = `${date}/${month}/${year}`;
+        document.getElementById(id).innerText = day
+      }
+</script>
+
+<main>
+    <div class="container">
+        <div class="content-header">
+            <h1 class="heading">Quản Lý Sách</h1>
+            <div class="d-flex justify-content-between">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search books" />
+                    <button class="search-btn"><i
+                            class="bi bi-search"
+                        ></i></button>
+                </div>
+
+                <a href="/create/book">
+                    <div
+                        class="createUser-btn d-flex justify-content-evenly align-items-center"
+                    >
+                        <i class="bi bi-bookmark-plus"></i>
+                        <div class="title">Thêm Sách Mới</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID Sách</th>
+                        <th scope="col">Tên Sách</th>
+                        <th scope="col">Hình Ảnh</th>
+                        <th scope="col">Thể Loại</th>
+                        <th scope="col">Tác Giả</th>
+                        <th scope="col">NXB</th>
+                        <th scope="col">Số Lượng</th>
+                        <th scope="col">Chức Năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each bookData}}
+                        <tr class="">
+                            <td scope="row">{{this.bookid}}</td>
+                            <td>{{this.bookName}}</td>
+                            <td>
+                                <img
+                                    class="book-thumbnail"
+                                    src="{{this.bookThumbnail}}"
+                                    alt=""
+                                />
+                            </td>
+                            <td>{{this.bookCategory}}</td>
+                            <td>{{this.author}}</td>
+                            <td id="pDate{{@index}}"> <script>format('{{this.publicationDate}}', 'pDate{{@index}}')</script> </td>
+                            <td>{{this.amount}}</td>
+                            <td>
+                                <div class="option-item">
+                                    <i class="bi bi-pencil-square edit"></i>
+                                    <i class="bi bi-trash3 delete"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

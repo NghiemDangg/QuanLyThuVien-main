@@ -1,0 +1,54 @@
+<main>
+    <div class="container">
+        <div class="content-header">
+            <h1 class="heading">Danh Sách Đọc Giả</h1>
+            <div class="d-flex justify-content-between">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Users" />
+                    <button class="search-btn"><i
+                            class="bi bi-search"
+                        ></i></button>
+                </div>
+                <a href="/create/user">
+                    <div
+                        class="createUser-btn d-flex justify-content-evenly align-items-center"
+                    >
+                        <i class="bi bi-person-plus-fill"></i>
+                        <div class="title">Thêm Người Dùng</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-striped" id="user-list">
+                <thead>
+                    <tr>
+                        <th scope="col">Mã Đọc Giả</th>
+                        <th scope="col">Họ và Tên</th>
+                        <th scope="col">Điện Thoại</th>
+                        <th scope="col">Địa Chỉ</th>
+                        <th scope="col">Chức Năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each dataUser}}
+                        <tr class="">
+                            <td scope="row">{{this.userid}}</td>
+                            <td>{{this.personName}}</td>
+                            <td>{{this.phone}}</td>
+                            <td>{{this.location}}</td>
+                            <td>
+                                <div class="option-item">
+                                    <i class="bi bi-pencil-square edit"></i>
+                                    <a href="/delete/user/{{this.userid}}"><i class="bi bi-trash3 delete"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

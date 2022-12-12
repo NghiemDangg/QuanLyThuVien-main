@@ -1,0 +1,74 @@
+<main>
+    <div class="container">
+        <div class="form-wrapper">
+            <form
+                action="/create/new-book"
+                method="post"
+                autocomplete="off"
+                enctype="multipart/form-data"
+            >
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="bookid">Id sách</label>
+                            <input type="text" name="bookid" id="bookid" />
+                        </div>
+                        <div class="input-group">
+                            <label for="bookName">Tên Sách</label>
+                            <input type="text" name="bookName" id="bookName" />
+                        </div>
+                        <div class="input-group">
+                            <label for="bookCategory">Thể Loại</label>
+                            <input
+                                type="text"
+                                name="bookCategory"
+                                id="bookCategory"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="author">Tác giả</label>
+                            <input type="text" name="author" id="author" />
+                        </div>
+                        <div class="input-group">
+                            <label for="publicationDate">Ngày xuất bản</label>
+                            <input
+                                type="date"
+                                name="publicationDate"
+                                id="publicationDate"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="amount">Số Lượng</label>
+                            <input type="text" name="amount" id="amount" />
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="bookThumbnail">Hình Ảnh</label>
+                            <input
+                                type="file"
+                                name="bookThumbnail"
+                                id="bookThumbnail"
+                            />
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <a
+                            href="./bookmanage.html"
+                            type="submit"
+                            id="btn-back"
+                            class="button"
+                        >Quản Lý Sách</a>
+                        <button id="btn-create" class="button">
+                            Tạo Sách Mới
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
